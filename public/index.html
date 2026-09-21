@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Flash Flood Early Warning & Hydrological Surveillance Hub | Government of India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Top Tricolor Accent Bar -->
+  <div class="gov-tricolor-bar">
+    <div class="stripe-saffron"></div>
+    <div class="stripe-white"></div>
+    <div class="stripe-green"></div>
+  </div>
+
+  <!-- Official Top Government Header Strip -->
+  <div class="gov-top-strip">
+    <div class="gov-strip-container">
+      <div class="gov-strip-left">
+        <span class="gov-emblem-text">भारत सरकार | GOVERNMENT OF INDIA</span>
+        <span class="gov-strip-divider">•</span>
+        <span>जल शक्ति मंत्रालय | Ministry of Jal Shakti</span>
+        <span class="gov-strip-divider">•</span>
+        <span>राष्ट्रीय आपदा प्रबंधन प्राधिकरण (NDMA)</span>
+      </div>
+      <div class="gov-strip-right">
+        <span class="helpline-badge">🚨 24x7 Control Room: <b>1078 / 112</b></span>
+        <span class="gov-strip-divider">|</span>
+        <span id="current-clock" class="gov-clock">--:--:-- IST</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Portal Header -->
+  <header class="gov-main-header">
+    <div class="header-inner">
+      <div class="gov-brand-container">
+        <div class="emblem-wrapper">
+          <svg class="gov-lion-emblem" viewBox="0 0 100 120" fill="currentColor">
+            <!-- Stylized Ashoka Pillar / Government Emblem Vector -->
+            <path d="M50 5 L53 18 L66 18 L55 26 L59 39 L50 31 L41 39 L45 26 L34 18 L47 18 Z" fill="#D97706"/>
+            <circle cx="50" cy="55" r="30" fill="none" stroke="#D97706" stroke-width="3"/>
+            <circle cx="50" cy="55" r="6" fill="#D97706"/>
+            <path d="M50 25 L50 85 M20 55 L80 55 M29 34 L71 76 M29 76 L71 34 M23 44 L77 66 M23 66 L77 44" stroke="#D97706" stroke-width="1.5"/>
+            <rect x="25" y="90" width="50" height="8" rx="2" fill="#0B2240"/>
+            <rect x="18" y="100" width="64" height="6" rx="2" fill="#D97706"/>
+            <rect x="10" y="108" width="80" height="6" rx="2" fill="#0B2240"/>
+          </svg>
+        </div>
+        <div class="gov-titles">
+          <div class="gov-sub-title-hi">राष्ट्रीय त्वरित बाढ़ पूर्व चेतावनी एवं जलवैज्ञानिक निगरानी पोर्टल</div>
+          <h1 class="gov-title-en">National Flash Flood Early Warning System (NFFEWS)</h1>
+          <div class="gov-tagline">Central Water Commission (CWC) • Edge Telemetry Surveillance Hub • AI Risk Neural Grid</div>
+        </div>
+      </div>
+
+      <div class="header-portal-status">
+        <div class="official-status-badge status-standby" id="connection-pill">
+          <span class="status-pulse-dot"></span>
+          <span id="connection-status-text">INITIALIZING TELEMETRY...</span>
+        </div>
+        <div class="node-identifier-pill" id="node-id-badge">
+          <span class="node-label">EDGE NODE:</span>
+          <span class="node-id">ESP32_FLOOD_NODE_01</span>
+        </div>
+        <a class="gov-btn gov-btn-download" id="link-header-export" href="/api/export/csv" download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export CSV Log (<span id="total-stored-badge">0</span>)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Official Government Flash Advisory Ticker -->
+  <div class="gov-ticker-bar">
+    <div class="ticker-label">
+      <span class="ticker-beacon"></span>
+      OFFICIAL ADVISORY
+    </div>
+    <div class="ticker-content" id="ticker-text">
+      Real-time edge IoT multi-sensor telemetry stream active. Hydrological risk classification algorithms running continuous inference on river basin watershed parameters.
+    </div>
+    <div class="ticker-meta">
+      BULLETIN: <b id="ticker-bulletin-id">NFFEWS-2026-LIVE</b>
+    </div>
+  </div>
+
+  <div class="portal-main-container">
+    <!-- MAIN SURVEILLANCE & EARLY WARNING GRID -->
+    <div class="dashboard-primary-grid">
+      
+      <!-- LEFT / HERO: OFFICIAL DISASTER RISK BULLETIN CARD -->
+      <section class="gov-card hero-bulletin-card" id="risk-hero-container">
+        <div class="gov-card-header">
+          <div class="card-header-left">
+            <span class="gov-seal-badge">NDMA PROTOCOL SOP-FL-04</span>
+            <span class="card-headline">NATIONAL HYDROLOGICAL RISK INFERENCE</span>
+          </div>
+          <div class="advisory-lead-time" id="lead-time-badge">⏳ 72h Routine Surveillance</div>
+        </div>
+
+        <div class="bulletin-hero-body">
+          <!-- Circular Official Risk Dial -->
+          <div class="risk-dial-col">
+            <div class="gov-risk-dial" id="risk-meter-glow">
+              <div class="dial-tier-level" id="risk-level-num">L0</div>
+              <div class="dial-tier-name" id="risk-tier-title">LOW RISK</div>
+            </div>
+            <div class="dial-confidence-box">
+              <span class="conf-title">Model Confidence:</span>
+              <span class="conf-score" id="risk-confidence">98.5%</span>
+            </div>
+          </div>
+
+          <!-- Official Risk Description & Action Directive -->
+          <div class="risk-directive-col">
+            <div class="official-alert-banner" id="status-code-banner">NORMAL / ALL CLEAR - BASELINE STATE</div>
+            <p class="official-narrative" id="risk-desc">
+              All watershed sensors operating within baseline safety margins. Subsurface moisture and runoff parameters normal across the catchment basin.
+            </p>
+
+            <!-- Hardware Siren & Actuator Deployment Status -->
+            <div class="actuator-status-grid">
+              <div class="actuator-card">
+                <div class="act-header">
+                  <span class="act-icon" id="act-siren-icon">🔇</span>
+                  <span class="act-title">Civil Defense Siren</span>
+                </div>
+                <div class="act-val" id="act-siren-state">STANDBY (OFF)</div>
+              </div>
+              <div class="actuator-card">
+                <div class="act-header">
+                  <span class="act-icon" id="act-led-icon">🟢</span>
+                  <span class="act-title">Visual Alert Tower</span>
+                </div>
+                <div class="act-val" id="act-led-state">GREEN (SAFE)</div>
+              </div>
+              <div class="actuator-card">
+                <div class="act-header">
+                  <span class="act-icon">📡</span>
+                  <span class="act-title">Telemetry Cycle</span>
+                </div>
+                <div class="act-val">2.0s Continuous</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neural Multi-Class Probability Distribution Grid -->
+        <div class="gov-prob-section">
+          <div class="prob-section-title">Machine Learning Classification Probability Breakdown:</div>
+          <div class="gov-prob-grid">
+            <div class="prob-cell">
+              <div class="prob-cell-header">
+                <span class="tier-dot dot-l0"></span>
+                <span>Level 0: Low Risk</span>
+                <b id="prob-l0-val">95%</b>
+              </div>
+              <div class="gov-progress-bar"><div class="gov-progress-fill fill-l0" id="prob-l0-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="prob-cell">
+              <div class="prob-cell-header">
+                <span class="tier-dot dot-l1"></span>
+                <span>Level 1: Advisory</span>
+                <b id="prob-l1-val">5%</b>
+              </div>
+              <div class="gov-progress-bar"><div class="gov-progress-fill fill-l1" id="prob-l1-fill" style="width: 5%;"></div></div>
+            </div>
+            <div class="prob-cell">
+              <div class="prob-cell-header">
+                <span class="tier-dot dot-l2"></span>
+                <span>Level 2: Warning</span>
+                <b id="prob-l2-val">0%</b>
+              </div>
+              <div class="gov-progress-bar"><div class="gov-progress-fill fill-l2" id="prob-l2-fill" style="width: 0%;"></div></div>
+            </div>
+            <div class="prob-cell">
+              <div class="prob-cell-header">
+                <span class="tier-dot dot-l3"></span>
+                <span>Level 3: Severe</span>
+                <b id="prob-l3-val">0%</b>
+              </div>
+              <div class="gov-progress-bar"><div class="gov-progress-fill fill-l3" id="prob-l3-fill" style="width: 0%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: RISK ATTRIBUTION & CIVIL DEFENSE PROTOCOLS -->
+      <section class="gov-card drivers-advisories-card">
+        <div class="gov-card-header">
+          <div class="card-header-left">
+            <span class="gov-seal-badge seal-amber">SURVEILLANCE MATRIX</span>
+            <span class="card-headline">PRIMARY HYDROLOGICAL DRIVERS</span>
+          </div>
+        </div>
+        <div class="drivers-box" id="drivers-list">
+          <div class="gov-driver-item">⚡ All hydrological parameters operating within calibrated baseline safety limits.</div>
+        </div>
+
+        <div class="gov-card-header" style="margin-top: 1.2rem;">
+          <div class="card-header-left">
+            <span class="gov-seal-badge seal-blue">ACTION PROTOCOL</span>
+            <span class="card-headline">CIVIL DEFENSE & EVACUATION PROTOCOLS</span>
+          </div>
+        </div>
+        <div class="advisories-box" id="advisories-list">
+          <div class="gov-advisory-item">⚠️ Maintain routine telemetry streaming and standard drainage clearances.</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SENSOR OBSERVATION TELEMETRY CARDS (5 PHYSICAL GAUGES) -->
+    <section class="gov-sensors-section">
+      <div class="section-title-strip">
+        <h2 class="section-h2">📊 Live Hydro-Meteorological Observation Telemetry</h2>
+        <span class="gov-live-indicator"><span class="blink-dot"></span> LIVE SENSOR STREAM</span>
+      </div>
+
+      <div class="gov-sensors-grid">
+        <!-- 1. Ambient Temperature -->
+        <div class="gov-sensor-card">
+          <div class="g-sensor-top">
+            <span class="g-sensor-icon">🌡️</span>
+            <span class="g-sensor-type">DHT11 • DIGITAL</span>
+          </div>
+          <div class="g-sensor-label">Ambient Air Temperature</div>
+          <div class="g-sensor-val-row">
+            <span class="g-sensor-val" id="val-temp">24.5</span>
+            <span class="g-sensor-unit">°C</span>
+          </div>
+          <div class="g-sensor-footer">
+            <span class="g-subtext">Thermal Inundation Factor</span>
+            <span class="gov-tag tag-normal" id="state-temp">NORMAL</span>
+          </div>
+        </div>
+
+        <!-- 2. Relative Humidity -->
+        <div class="gov-sensor-card">
+          <div class="g-sensor-top">
+            <span class="g-sensor-icon">💧</span>
+            <span class="g-sensor-type">DHT11 • DIGITAL</span>
+          </div>
+          <div class="g-sensor-label">Relative Air Humidity</div>
+          <div class="g-sensor-val-row">
+            <span class="g-sensor-val" id="val-humidity">68.0</span>
+            <span class="g-sensor-unit">%</span>
+          </div>
+          <div class="g-sensor-footer">
+            <span class="g-subtext">Vapor Saturation Ratio</span>
+            <span class="gov-tag tag-normal" id="state-humidity">OPTIMAL</span>
+          </div>
+        </div>
+
+        <!-- 3. Subsurface Soil Moisture -->
+        <div class="gov-sensor-card">
+          <div class="g-sensor-top">
+            <span class="g-sensor-icon">🌱</span>
+            <span class="g-sensor-type">CAPACITIVE ADC</span>
+          </div>
+          <div class="g-sensor-label">Soil Moisture Saturation</div>
+          <div class="g-sensor-val-row">
+            <span class="g-sensor-val" id="val-soil">42.5</span>
+            <span class="g-sensor-unit">%</span>
+          </div>
+          <div class="g-sensor-footer">
+            <span class="g-subtext">Catchment Memory Ratio</span>
+            <span class="gov-tag tag-normal" id="state-soil">MODERATE</span>
+          </div>
+        </div>
+
+        <!-- 4. Rain Rate & Accumulation -->
+        <div class="gov-sensor-card">
+          <div class="g-sensor-top">
+            <span class="g-sensor-icon">🌧️</span>
+            <span class="g-sensor-type">HW-038 • GAUGE</span>
+          </div>
+          <div class="g-sensor-label">Precipitation Rate & Depth</div>
+          <div class="g-sensor-val-row">
+            <span class="g-sensor-val" id="val-rain">0.0</span>
+            <span class="g-sensor-unit">mm/h</span>
+          </div>
+          <div class="g-sensor-footer">
+            <span class="g-subtext">Accum: <b id="val-rain-accum">0.0 mm</b></span>
+            <span class="gov-tag tag-normal" id="state-rain">DRY</span>
+          </div>
+        </div>
+
+        <!-- 5. Slope Pitch & Seismic Vibration -->
+        <div class="gov-sensor-card">
+          <div class="g-sensor-top">
+            <span class="g-sensor-icon">📐</span>
+            <span class="g-sensor-type">MPU-6050 • 6-AXIS</span>
+          </div>
+          <div class="g-sensor-label">Slope Angle & Vibration</div>
+          <div class="g-sensor-val-row">
+            <span class="g-sensor-val" id="val-slope">12.0</span>
+            <span class="g-sensor-unit">°</span>
+          </div>
+          <div class="g-sensor-footer">
+            <span class="g-subtext">Seismic: <b id="val-vibration">0.00g</b></span>
+            <span class="gov-tag tag-normal" id="state-slope">STABLE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTINUOUS TELEMETRY WAVEFORM SECTION -->
+    <section class="gov-card chart-card">
+      <div class="gov-card-header">
+        <div class="card-header-left">
+          <span class="gov-seal-badge seal-blue">TIME SERIES</span>
+          <span class="card-headline">CONTINUOUS HYDROLOGICAL STREAM WAVEFORM</span>
+        </div>
+        <div class="chart-legend-row">
+          <span class="c-legend leg-rain">🌧️ Rain (mm/h)</span>
+          <span class="c-legend leg-soil">🌱 Soil Saturation (%)</span>
+          <span class="c-legend leg-hum">💧 Humidity (%)</span>
+          <span class="c-legend leg-temp">🌡️ Temp (°C)</span>
+          <span class="c-legend leg-slope">📐 Slope Tilt (°)</span>
+        </div>
+      </div>
+      <div class="chart-canvas-wrapper">
+        <canvas id="liveTelemetryChart"></canvas>
+      </div>
+    </section>
+
+    <!-- PERSISTENT REPOSITORY DATABASE TABLE SECTION -->
+    <section class="gov-card db-repository-card">
+      <div class="gov-card-header">
+        <div class="card-header-left">
+          <span class="gov-seal-badge seal-green">NATIONAL ARCHIVE</span>
+          <span class="card-headline">PERSISTENT SENSOR TELEMETRY REPOSITORY</span>
+        </div>
+        <div class="db-actions-group">
+          <button class="gov-btn gov-btn-secondary" id="btn-refresh-db">🔄 Refresh Records</button>
+          <a class="gov-btn gov-btn-primary" id="link-download-csv" href="/api/export/csv" download>📥 Download Complete CSV Log</a>
+        </div>
+      </div>
+
+      <!-- Storage Metrics Bar -->
+      <div class="gov-stats-strip">
+        <div class="g-stat-unit">
+          <div class="g-stat-val" id="stat-total-records">0</div>
+          <div class="g-stat-label">Total Readings Logged</div>
+        </div>
+        <div class="g-stat-unit">
+          <div class="g-stat-val" id="stat-avg-temp">--°C</div>
+          <div class="g-stat-label">Mean Ambient Temp</div>
+        </div>
+        <div class="g-stat-unit">
+          <div class="g-stat-val" id="stat-avg-soil">--%</div>
+          <div class="g-stat-label">Mean Catchment Soil</div>
+        </div>
+        <div class="g-stat-unit">
+          <div class="g-stat-val" id="stat-max-rain">-- mm/h</div>
+          <div class="g-stat-label">Peak Rain Intensity</div>
+        </div>
+      </div>
+
+      <!-- Official Data Table -->
+      <div class="gov-table-container">
+        <table class="gov-table" id="db-readings-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Official Timestamp (IST)</th>
+              <th>Node Identifier</th>
+              <th>Temp (°C)</th>
+              <th>Humidity (%)</th>
+              <th>Soil Moisture (%)</th>
+              <th>Rain Rate (mm/h)</th>
+              <th>Accum Depth (mm)</th>
+              <th>Slope (°)</th>
+              <th>Vibe (g)</th>
+              <th>Classified Risk Tier</th>
+              <th>Operational Status</th>
+            </tr>
+          </thead>
+          <tbody id="db-table-body">
+            <tr>
+              <td colspan="12" style="text-align: center; color: #64748B; padding: 2rem;">
+                Connecting to persistent National Sensor Telemetry Database (SQLite3)...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Official Government Portal Footer -->
+  <footer class="gov-portal-footer">
+    <div class="footer-inner">
+      <div class="footer-col-main">
+        <div class="footer-gov-title">National Flash Flood Early Warning System (NFFEWS)</div>
+        <div class="footer-gov-sub">
+          Operated by Central Water Commission (CWC) in collaboration with National Disaster Management Authority (NDMA) and Ministry of Jal Shakti.
+        </div>
+        <div class="footer-helpline-row">
+          <span>National Emergency Helpline: <b>112</b></span> •
+          <span>Disaster Management Toll-Free: <b>1078</b></span> •
+          <span>Meteorological Inquiries (IMD): <b>1800-180-1717</b></span>
+        </div>
+      </div>
+      <div class="footer-col-right">
+        <div class="data-badge">Official Government Telemetry Hub • Encrypted Edge Feed</div>
+        <div class="footer-copy">© 2026 Government of India. All rights reserved. Data format compliant with National Hydrology Project (NHP).</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

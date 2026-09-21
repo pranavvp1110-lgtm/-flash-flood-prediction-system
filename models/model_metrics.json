@@ -1,0 +1,752 @@
+{
+  "Logistic_Regression_Baseline": {
+    "validation": {
+      "dataset": "Validation",
+      "accuracy": 0.9865,
+      "macro_f1": 0.9637,
+      "weighted_f1": 0.9867,
+      "precision_macro": 0.9526,
+      "recall_macro": 0.9767,
+      "roc_auc_ovr": 0.9998,
+      "confusion_matrix": [
+        [
+          27047,
+          206,
+          0,
+          0
+        ],
+        [
+          21,
+          6229,
+          181,
+          0
+        ],
+        [
+          0,
+          16,
+          1414,
+          27
+        ],
+        [
+          0,
+          0,
+          52,
+          2037
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9992241761489582,
+          "recall": 0.9924411991340403,
+          "f1-score": 0.9958211373133778,
+          "support": 27253.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9655867307394203,
+          "recall": 0.9685896439122998,
+          "f1-score": 0.9670858562335041,
+          "support": 6431.0
+        },
+        "High Risk": {
+          "precision": 0.8585306618093503,
+          "recall": 0.970487302676733,
+          "f1-score": 0.9110824742268041,
+          "support": 1457.0
+        },
+        "Severe Risk": {
+          "precision": 0.9869186046511628,
+          "recall": 0.9751077070368598,
+          "f1-score": 0.9809776065494823,
+          "support": 2089.0
+        },
+        "accuracy": 0.9864893902766586,
+        "macro avg": {
+          "precision": 0.9525650433372229,
+          "recall": 0.9766564631899832,
+          "f1-score": 0.9637417685807921,
+          "support": 37230.0
+        },
+        "weighted avg": {
+          "precision": 0.9872172140033649,
+          "recall": 0.9864893902766586,
+          "f1-score": 0.9867083529860186,
+          "support": 37230.0
+        }
+      }
+    },
+    "test": {
+      "dataset": "Test",
+      "accuracy": 0.9852,
+      "macro_f1": 0.958,
+      "weighted_f1": 0.9854,
+      "precision_macro": 0.9457,
+      "recall_macro": 0.9726,
+      "roc_auc_ovr": 0.9997,
+      "confusion_matrix": [
+        [
+          18174,
+          141,
+          0,
+          0
+        ],
+        [
+          10,
+          4059,
+          142,
+          0
+        ],
+        [
+          0,
+          11,
+          944,
+          23
+        ],
+        [
+          0,
+          0,
+          42,
+          1308
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.999450065992081,
+          "recall": 0.9923013923013922,
+          "f1-score": 0.9958629003534344,
+          "support": 18315.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9639040607931608,
+          "recall": 0.9639040607931608,
+          "f1-score": 0.9639040607931608,
+          "support": 4211.0
+        },
+        "High Risk": {
+          "precision": 0.8368794326241135,
+          "recall": 0.9652351738241309,
+          "f1-score": 0.8964862298195632,
+          "support": 978.0
+        },
+        "Severe Risk": {
+          "precision": 0.9827197595792637,
+          "recall": 0.9688888888888889,
+          "f1-score": 0.9757553151809026,
+          "support": 1350.0
+        },
+        "accuracy": 0.9851532952442262,
+        "macro avg": {
+          "precision": 0.9457383297471548,
+          "recall": 0.9725823789518933,
+          "f1-score": 0.9580021265367653,
+          "support": 24854.0
+        },
+        "weighted avg": {
+          "precision": 0.9861216592573974,
+          "recall": 0.9851532952442262,
+          "f1-score": 0.9854454907954817,
+          "support": 24854.0
+        }
+      }
+    }
+  },
+  "Random_Forest": {
+    "validation": {
+      "dataset": "Validation",
+      "accuracy": 0.9891,
+      "macro_f1": 0.9807,
+      "weighted_f1": 0.9892,
+      "precision_macro": 0.9738,
+      "recall_macro": 0.9879,
+      "roc_auc_ovr": 0.9998,
+      "confusion_matrix": [
+        [
+          26979,
+          274,
+          0,
+          0
+        ],
+        [
+          19,
+          6339,
+          73,
+          0
+        ],
+        [
+          0,
+          17,
+          1428,
+          12
+        ],
+        [
+          0,
+          0,
+          9,
+          2080
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9992962441662345,
+          "recall": 0.9899460609841119,
+          "f1-score": 0.9945991778953384,
+          "support": 27253.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9561085972850679,
+          "recall": 0.985694293266988,
+          "f1-score": 0.9706760584947554,
+          "support": 6431.0
+        },
+        "High Risk": {
+          "precision": 0.9456953642384106,
+          "recall": 0.9800960878517502,
+          "f1-score": 0.9625884732052579,
+          "support": 1457.0
+        },
+        "Severe Risk": {
+          "precision": 0.994263862332696,
+          "recall": 0.9956917185256103,
+          "f1-score": 0.9949772781631189,
+          "support": 2089.0
+        },
+        "accuracy": 0.9891485361267794,
+        "macro avg": {
+          "precision": 0.9738410170056023,
+          "recall": 0.9878570401571152,
+          "f1-score": 0.9807102469396176,
+          "support": 37230.0
+        },
+        "weighted avg": {
+          "precision": 0.9894560914722276,
+          "recall": 0.9891485361267794,
+          "f1-score": 0.9892352421945807,
+          "support": 37230.0
+        }
+      }
+    },
+    "test": {
+      "dataset": "Test",
+      "accuracy": 0.9878,
+      "macro_f1": 0.9758,
+      "weighted_f1": 0.988,
+      "precision_macro": 0.9688,
+      "recall_macro": 0.9831,
+      "roc_auc_ovr": 0.9998,
+      "confusion_matrix": [
+        [
+          18127,
+          188,
+          0,
+          0
+        ],
+        [
+          13,
+          4139,
+          59,
+          0
+        ],
+        [
+          0,
+          21,
+          946,
+          11
+        ],
+        [
+          0,
+          0,
+          10,
+          1340
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9992833517089306,
+          "recall": 0.9897351897351897,
+          "f1-score": 0.994486353037992,
+          "support": 18315.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9519319227230911,
+          "recall": 0.9829019235336025,
+          "f1-score": 0.9671690618062858,
+          "support": 4211.0
+        },
+        "High Risk": {
+          "precision": 0.9320197044334976,
+          "recall": 0.967280163599182,
+          "f1-score": 0.9493226292022078,
+          "support": 978.0
+        },
+        "Severe Risk": {
+          "precision": 0.9918578830495929,
+          "recall": 0.9925925925925926,
+          "f1-score": 0.9922251018141429,
+          "support": 1350.0
+        },
+        "accuracy": 0.9878490383841635,
+        "macro avg": {
+          "precision": 0.968773215478778,
+          "recall": 0.9831274673651417,
+          "f1-score": 0.9758007864651571,
+          "support": 24854.0
+        },
+        "weighted avg": {
+          "precision": 0.988210482263978,
+          "recall": 0.9878490383841635,
+          "f1-score": 0.9879579904227064,
+          "support": 24854.0
+        }
+      }
+    }
+  },
+  "Hist_Gradient_Boosting": {
+    "validation": {
+      "dataset": "Validation",
+      "accuracy": 0.9952,
+      "macro_f1": 0.9858,
+      "weighted_f1": 0.9952,
+      "precision_macro": 0.9852,
+      "recall_macro": 0.9864,
+      "roc_auc_ovr": 1.0,
+      "confusion_matrix": [
+        [
+          27209,
+          44,
+          0,
+          0
+        ],
+        [
+          33,
+          6365,
+          33,
+          0
+        ],
+        [
+          0,
+          22,
+          1407,
+          28
+        ],
+        [
+          0,
+          0,
+          17,
+          2072
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9987886351956538,
+          "recall": 0.9983854988441639,
+          "f1-score": 0.998587026332691,
+          "support": 27253.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9897372103871871,
+          "recall": 0.9897372103871871,
+          "f1-score": 0.9897372103871871,
+          "support": 6431.0
+        },
+        "High Risk": {
+          "precision": 0.9656829100892245,
+          "recall": 0.9656829100892245,
+          "f1-score": 0.9656829100892245,
+          "support": 1457.0
+        },
+        "Severe Risk": {
+          "precision": 0.9866666666666667,
+          "recall": 0.9918621349928195,
+          "f1-score": 0.9892575793745524,
+          "support": 2089.0
+        },
+        "accuracy": 0.995245769540693,
+        "macro avg": {
+          "precision": 0.985218855584683,
+          "recall": 0.9864169385783488,
+          "f1-score": 0.9858161815459137,
+          "support": 37230.0
+        },
+        "weighted avg": {
+          "precision": 0.995249351105394,
+          "recall": 0.995245769540693,
+          "f1-score": 0.9952471477829242,
+          "support": 37230.0
+        }
+      }
+    },
+    "test": {
+      "dataset": "Test",
+      "accuracy": 0.9942,
+      "macro_f1": 0.9828,
+      "weighted_f1": 0.9942,
+      "precision_macro": 0.9829,
+      "recall_macro": 0.9828,
+      "roc_auc_ovr": 1.0,
+      "confusion_matrix": [
+        [
+          18282,
+          33,
+          0,
+          0
+        ],
+        [
+          27,
+          4157,
+          27,
+          0
+        ],
+        [
+          0,
+          26,
+          933,
+          19
+        ],
+        [
+          0,
+          0,
+          11,
+          1339
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9985253154186465,
+          "recall": 0.9981981981981982,
+          "f1-score": 0.9983617300131061,
+          "support": 18315.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9860056925996205,
+          "recall": 0.9871764426502019,
+          "f1-score": 0.9865907203037855,
+          "support": 4211.0
+        },
+        "High Risk": {
+          "precision": 0.96086508753862,
+          "recall": 0.9539877300613497,
+          "f1-score": 0.9574140584915342,
+          "support": 978.0
+        },
+        "Severe Risk": {
+          "precision": 0.9860088365243005,
+          "recall": 0.9918518518518519,
+          "f1-score": 0.9889217134416544,
+          "support": 1350.0
+        },
+        "accuracy": 0.9942463989699847,
+        "macro avg": {
+          "precision": 0.9828512330202969,
+          "recall": 0.9828035556904005,
+          "f1-score": 0.98282205556252,
+          "support": 24854.0
+        },
+        "weighted avg": {
+          "precision": 0.9942423395972515,
+          "recall": 0.9942463989699847,
+          "f1-score": 0.9942433359113315,
+          "support": 24854.0
+        }
+      }
+    }
+  },
+  "Gradient_Boosting": {
+    "validation": {
+      "dataset": "Validation",
+      "accuracy": 0.9957,
+      "macro_f1": 0.9893,
+      "weighted_f1": 0.9957,
+      "precision_macro": 0.9897,
+      "recall_macro": 0.989,
+      "roc_auc_ovr": 1.0,
+      "confusion_matrix": [
+        [
+          27210,
+          43,
+          0,
+          0
+        ],
+        [
+          41,
+          6363,
+          27,
+          0
+        ],
+        [
+          0,
+          30,
+          1414,
+          13
+        ],
+        [
+          0,
+          0,
+          5,
+          2084
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9984954680562181,
+          "recall": 0.9984221920522511,
+          "f1-score": 0.9984588287098195,
+          "support": 27253.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9886575512740833,
+          "recall": 0.9894262167625564,
+          "f1-score": 0.9890417346700863,
+          "support": 6431.0
+        },
+        "High Risk": {
+          "precision": 0.9778699861687413,
+          "recall": 0.970487302676733,
+          "f1-score": 0.9741646572511196,
+          "support": 1457.0
+        },
+        "Severe Risk": {
+          "precision": 0.9938006676204101,
+          "recall": 0.9976065102920058,
+          "f1-score": 0.9956999522216914,
+          "support": 2089.0
+        },
+        "accuracy": 0.9957292506043514,
+        "macro avg": {
+          "precision": 0.9897059182798633,
+          "recall": 0.9889855554458865,
+          "f1-score": 0.9893412932131792,
+          "support": 37230.0
+        },
+        "weighted avg": {
+          "precision": 0.9957254866421337,
+          "recall": 0.9957292506043514,
+          "f1-score": 0.995726590392104,
+          "support": 37230.0
+        }
+      }
+    },
+    "test": {
+      "dataset": "Test",
+      "accuracy": 0.9951,
+      "macro_f1": 0.9877,
+      "weighted_f1": 0.9951,
+      "precision_macro": 0.988,
+      "recall_macro": 0.9875,
+      "roc_auc_ovr": 0.9999,
+      "confusion_matrix": [
+        [
+          18275,
+          40,
+          0,
+          0
+        ],
+        [
+          25,
+          4167,
+          19,
+          0
+        ],
+        [
+          0,
+          24,
+          945,
+          9
+        ],
+        [
+          0,
+          0,
+          5,
+          1345
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9986338797814208,
+          "recall": 0.9978159978159978,
+          "f1-score": 0.9982247712686058,
+          "support": 18315.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9848735523516899,
+          "recall": 0.9895511754927571,
+          "f1-score": 0.9872068230277186,
+          "support": 4211.0
+        },
+        "High Risk": {
+          "precision": 0.9752321981424149,
+          "recall": 0.9662576687116564,
+          "f1-score": 0.9707241910631741,
+          "support": 978.0
+        },
+        "Severe Risk": {
+          "precision": 0.9933530280649926,
+          "recall": 0.9962962962962963,
+          "f1-score": 0.9948224852071006,
+          "support": 1350.0
+        },
+        "accuracy": 0.99509133338698,
+        "macro avg": {
+          "precision": 0.9880231645851295,
+          "recall": 0.9874802845791769,
+          "f1-score": 0.9877445676416496,
+          "support": 24854.0
+        },
+        "weighted avg": {
+          "precision": 0.9950947821204116,
+          "recall": 0.99509133338698,
+          "f1-score": 0.9950910610543015,
+          "support": 24854.0
+        }
+      }
+    }
+  },
+  "Calibrated_Voting_Ensemble": {
+    "validation": {
+      "dataset": "Validation",
+      "accuracy": 0.996,
+      "macro_f1": 0.9907,
+      "weighted_f1": 0.996,
+      "precision_macro": 0.9893,
+      "recall_macro": 0.992,
+      "roc_auc_ovr": 1.0,
+      "confusion_matrix": [
+        [
+          27194,
+          59,
+          0,
+          0
+        ],
+        [
+          26,
+          6375,
+          30,
+          0
+        ],
+        [
+          0,
+          16,
+          1432,
+          9
+        ],
+        [
+          0,
+          0,
+          8,
+          2081
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.9990448199853049,
+          "recall": 0.9978351007228562,
+          "f1-score": 0.9984395939272667,
+          "support": 27253.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9883720930232558,
+          "recall": 0.9912921785103406,
+          "f1-score": 0.9898299821442434,
+          "support": 6431.0
+        },
+        "High Risk": {
+          "precision": 0.9741496598639455,
+          "recall": 0.9828414550446122,
+          "f1-score": 0.9784762555517594,
+          "support": 1457.0
+        },
+        "Severe Risk": {
+          "precision": 0.9956937799043062,
+          "recall": 0.9961704164672092,
+          "f1-score": 0.9959320411581718,
+          "support": 2089.0
+        },
+        "accuracy": 0.9960247112543648,
+        "macro avg": {
+          "precision": 0.9893150881942031,
+          "recall": 0.9920347876862545,
+          "f1-score": 0.9906694681953603,
+          "support": 37230.0
+        },
+        "weighted avg": {
+          "precision": 0.9960389409060957,
+          "recall": 0.9960247112543648,
+          "f1-score": 0.9960304272572591,
+          "support": 37230.0
+        }
+      }
+    },
+    "test": {
+      "dataset": "Test",
+      "accuracy": 0.9953,
+      "macro_f1": 0.9879,
+      "weighted_f1": 0.9953,
+      "precision_macro": 0.9872,
+      "recall_macro": 0.9886,
+      "roc_auc_ovr": 1.0,
+      "confusion_matrix": [
+        [
+          18273,
+          42,
+          0,
+          0
+        ],
+        [
+          16,
+          4172,
+          23,
+          0
+        ],
+        [
+          0,
+          21,
+          949,
+          8
+        ],
+        [
+          0,
+          0,
+          6,
+          1344
+        ]
+      ],
+      "classification_report": {
+        "Low Risk": {
+          "precision": 0.999125157198316,
+          "recall": 0.9977067977067977,
+          "f1-score": 0.9984154737187193,
+          "support": 18315.0
+        },
+        "Moderate Risk": {
+          "precision": 0.9851239669421488,
+          "recall": 0.9907385419140347,
+          "f1-score": 0.9879232772910254,
+          "support": 4211.0
+        },
+        "High Risk": {
+          "precision": 0.9703476482617587,
+          "recall": 0.9703476482617587,
+          "f1-score": 0.9703476482617587,
+          "support": 978.0
+        },
+        "Severe Risk": {
+          "precision": 0.9940828402366864,
+          "recall": 0.9955555555555555,
+          "f1-score": 0.9948186528497409,
+          "support": 1350.0
+        },
+        "accuracy": 0.9953327432204072,
+        "macro avg": {
+          "precision": 0.9871699031597274,
+          "recall": 0.9885871358595366,
+          "f1-score": 0.9878762630303111,
+          "support": 24854.0
+        },
+        "weighted avg": {
+          "precision": 0.9953466690754033,
+          "recall": 0.9953327432204072,
+          "f1-score": 0.9953379537771788,
+          "support": 24854.0
+        }
+      }
+    }
+  }
+}

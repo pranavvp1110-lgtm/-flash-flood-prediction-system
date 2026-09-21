@@ -1,0 +1,61 @@
+{
+  "best_model": "Calibrated_Voting_Ensemble",
+  "classes": [
+    "Low Risk",
+    "Moderate Risk",
+    "High Risk",
+    "Severe Risk"
+  ],
+  "val_confusion_matrix": [
+    [
+      27194,
+      59,
+      0,
+      0
+    ],
+    [
+      26,
+      6375,
+      30,
+      0
+    ],
+    [
+      0,
+      16,
+      1432,
+      9
+    ],
+    [
+      0,
+      0,
+      8,
+      2081
+    ]
+  ],
+  "test_confusion_matrix": [
+    [
+      18273,
+      42,
+      0,
+      0
+    ],
+    [
+      16,
+      4172,
+      23,
+      0
+    ],
+    [
+      0,
+      21,
+      949,
+      8
+    ],
+    [
+      0,
+      0,
+      6,
+      1344
+    ]
+  ]
+}

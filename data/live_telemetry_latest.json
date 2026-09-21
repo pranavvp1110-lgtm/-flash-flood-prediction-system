@@ -1,0 +1,57 @@
+{
+  "timestamp": "2026-09-21 15:16:34",
+  "node_id": "ESP32_UNIT_TEST",
+  "status": "ONLINE",
+  "sensors": {
+    "temperature_c": 23.4,
+    "humidity_pct": 82.0,
+    "soil_moisture_pct": 45.0,
+    "soil_moisture_raw": 0,
+    "rain_rate_mm_h": 0.0,
+    "rain_accum_mm": 0.0,
+    "rain_intensity_pct": 0.0,
+    "slope_degrees": 10.0,
+    "vibration_g": 0.01
+  },
+  "ai_prediction": {
+    "node_id": "ESP32_UNIT_TEST",
+    "timestamp": "2026-09-21 15:16:34",
+    "predicted_risk_level": 0,
+    "risk_category": "Low Risk",
+    "risk_code": "LOW",
+    "risk_color": "#10B981",
+    "risk_description": "Normal baseline conditions. No flood threat.",
+    "confidence_score": 100.0,
+    "probability_distribution": {
+      "Low Risk": 100.0,
+      "Moderate Risk": 0.0,
+      "High Risk": 0.0,
+      "Severe Risk": 0.0
+    },
+    "early_warning_lead_time": "72h Routine Monitoring",
+    "status_code": "NORMAL / ALL CLEAR",
+    "advisory_actions": [
+      "Routine environmental and watershed monitoring.",
+      "Maintain standard drainage clearance and river gauge tracking.",
+      "No community alerts or evacuations required."
+    ],
+    "primary_risk_drivers": [
+      "All sensors operating within baseline safe operational thresholds."
+    ],
+    "sensors": {
+      "temperature_c": 23.4,
+      "humidity_pct": 82.0,
+      "soil_moisture_pct": 45.0,
+      "rain_rate_mm_h": 0.0,
+      "rain_accum_mm": 0.0,
+      "slope_degrees": 10.0,
+      "vibration_g": 0.01
+    },
+    "actuator_state": {
+      "buzzer_active": false,
+      "led_color": "GREEN",
+      "status_text": "NORMAL (GREEN LED)"
+    }
+  },
+  "id": 19
+}
