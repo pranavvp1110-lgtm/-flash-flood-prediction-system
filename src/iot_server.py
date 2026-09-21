@@ -277,6 +277,8 @@ class TelemetryHTTPHandler(BaseHTTPRequestHandler):
 
     def do_OPTIONS(self):
         self._set_cors_headers(204)
+    def do_HEAD(self):
+        self._set_cors_headers(200, "text/html; charset=utf-8")    
 
     def do_GET(self):
         parsed_url = urlparse(self.path)
